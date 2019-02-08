@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.sphere.sdk.annotations.*;
 import io.sphere.sdk.models.Reference;
 import io.sphere.sdk.models.Resource;
+import io.sphere.sdk.models.TraceResource;
 import io.sphere.sdk.models.WithKey;
 
 import javax.annotation.Nullable;
@@ -21,7 +22,7 @@ import java.util.List;
 @HasCreateCommand(javadocSummary = "Creates an extension")
 @HasUpdateCommand(javadocSummary = "Updates an extension.", updateWith = {"key","id"})
 @HasDeleteCommand(javadocSummary = "Deletes an extension.", deleteWith = {"key","id"})
-public interface Extension extends Resource<Extension>, WithKey {
+public interface Extension extends Resource<Extension>, TraceResource, WithKey {
 
 
     @IgnoreInQueryModel

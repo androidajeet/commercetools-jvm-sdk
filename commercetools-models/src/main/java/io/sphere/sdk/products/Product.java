@@ -7,6 +7,7 @@ import io.sphere.sdk.annotations.ResourceInfo;
 import io.sphere.sdk.annotations.ResourceValue;
 import io.sphere.sdk.models.Reference;
 import io.sphere.sdk.models.Resource;
+import io.sphere.sdk.models.TraceResource;
 import io.sphere.sdk.productdiscounts.ProductDiscount;
 import io.sphere.sdk.reviews.Review;
 import io.sphere.sdk.reviews.ReviewRatingStatistics;
@@ -39,7 +40,7 @@ import java.util.Optional;
 @ResourceValue(abstractResourceClass = true)
 @ResourceInfo(pluralName = "products", pathElement = "products")
 @HasDeleteCommand(includeExamples = "io.sphere.sdk.products.ProductDeleteExample#delete()", deleteWith = "key")
-public interface Product extends ProductLike<Product, Product>, Resource<Product> {
+public interface Product extends ProductLike<Product, Product>, Resource<Product>, TraceResource {
 
     ProductCatalogData getMasterData();
 

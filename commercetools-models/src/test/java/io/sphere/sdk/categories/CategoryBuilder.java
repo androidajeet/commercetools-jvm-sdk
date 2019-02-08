@@ -121,7 +121,7 @@ public final class CategoryBuilder extends Base implements Builder<Category> {
 
     @Override
     public Category build() {
-        return new CategoryImpl(ancestors, assets, createdAt, null, description, externalId, id, key, lastModifiedAt, metaDescription, metaKeywords, metaTitle, name, orderHint, parent, slug, version);
+        return new CategoryImpl(ancestors, assets, createdAt, null, null, description, externalId, id, key, lastModifiedAt, null, metaDescription, metaKeywords, metaTitle, name, orderHint, parent, slug, version);
     }
 
     protected CategoryBuilder getThis() {

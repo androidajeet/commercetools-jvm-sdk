@@ -8,6 +8,7 @@ import io.sphere.sdk.annotations.*;
 import io.sphere.sdk.models.LocalizedString;
 import io.sphere.sdk.models.Resource;
 import io.sphere.sdk.models.Reference;
+import io.sphere.sdk.models.TraceResource;
 
 import javax.annotation.Nullable;
 import java.time.ZonedDateTime;
@@ -33,7 +34,7 @@ import java.util.List;
 @HasQueryModel(additionalContents = "    default BooleanQueryModel<ProductDiscount> isActive() {\n" +
         "        return active();\n" +
         "    }")
-public interface ProductDiscount extends Resource<ProductDiscount> {
+public interface ProductDiscount extends Resource<ProductDiscount>, TraceResource {
 
     LocalizedString getName();
 

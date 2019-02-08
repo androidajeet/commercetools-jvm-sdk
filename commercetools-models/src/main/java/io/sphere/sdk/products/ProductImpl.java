@@ -20,7 +20,7 @@ final class ProductImpl extends ProductImplBase {
                     @Nullable final ReviewRatingStatistics reviewRatingStatistics,
                     @Nullable final Reference<State> state, @Nullable final Reference<TaxCategory> taxCategory,
                     final Long version) {
-        super(createdAt, id, key, lastModifiedAt, masterData, productType, reviewRatingStatistics, state, taxCategory, version);
+        super(createdAt, null, id, key, lastModifiedAt, null, masterData, productType, reviewRatingStatistics, state, taxCategory, version);
         Optional.of(masterData).filter(d -> d instanceof ProductCatalogDataImpl).ifPresent(d -> ((ProductCatalogDataImpl)d).setProductId(id));
     }
 }

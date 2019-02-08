@@ -7,6 +7,7 @@ import io.sphere.sdk.carts.Cart;
 import io.sphere.sdk.customers.Customer;
 import io.sphere.sdk.models.Reference;
 import io.sphere.sdk.models.Resource;
+import io.sphere.sdk.models.TraceResource;
 import io.sphere.sdk.models.WithKey;
 import io.sphere.sdk.types.Custom;
 import io.sphere.sdk.types.CustomFields;
@@ -41,7 +42,7 @@ import javax.annotation.Nullable;
 @HasUpdateCommand(javadocSummary = "Updates a customer group.", updateWith = "key")
 @HasDeleteCommand(javadocSummary = "Deletes a customer group.", includeExamples = "io.sphere.sdk.customergroups.commands.CustomerGroupDeleteCommandByIdIntegrationTest#execution()", deleteWith = "key")
 @HasQueryModel
-public interface CustomerGroup extends Resource<CustomerGroup>, WithKey,Custom {
+public interface CustomerGroup extends Resource<CustomerGroup>, TraceResource, WithKey,Custom {
 
     /**
      * The name of the customer group.

@@ -6,6 +6,7 @@ import io.sphere.sdk.annotations.*;
 import io.sphere.sdk.customers.Customer;
 import io.sphere.sdk.models.Reference;
 import io.sphere.sdk.models.Resource;
+import io.sphere.sdk.models.TraceResource;
 import io.sphere.sdk.orders.Order;
 import io.sphere.sdk.types.Custom;
 import io.sphere.sdk.types.CustomFields;
@@ -39,7 +40,7 @@ import java.util.List;
 @HasDeleteCommand(deleteWith = "key", includeExamples = "io.sphere.sdk.payments.commands.PaymentDeleteCommandIntegrationTest#execution()", canEraseUsersData = true)
 @HasQueryModel
 @HasUpdateActions
-public interface Payment extends Resource<Payment>, Custom {
+public interface Payment extends Resource<Payment>, TraceResource, Custom {
     @Nullable
     Reference<Customer> getCustomer();
 

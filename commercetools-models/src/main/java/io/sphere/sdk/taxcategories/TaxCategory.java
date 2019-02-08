@@ -7,6 +7,7 @@ import io.sphere.sdk.carts.CartShippingInfo;
 import io.sphere.sdk.carts.CustomLineItem;
 import io.sphere.sdk.models.Reference;
 import io.sphere.sdk.models.Resource;
+import io.sphere.sdk.models.TraceResource;
 import io.sphere.sdk.models.WithKey;
 import io.sphere.sdk.products.Product;
 
@@ -48,7 +49,7 @@ import java.util.List;
         deleteWith = "key",
         javadocSummary = "Deletes a tax category.")
 @HasQueryModel
-public interface TaxCategory extends Resource<TaxCategory>, WithKey {
+public interface TaxCategory extends Resource<TaxCategory>, TraceResource, WithKey {
     String getName();
 
     @Nullable

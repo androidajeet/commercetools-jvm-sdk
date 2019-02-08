@@ -9,6 +9,7 @@ import io.sphere.sdk.cartdiscounts.CartDiscount;
 import io.sphere.sdk.models.LocalizedString;
 import io.sphere.sdk.models.Reference;
 import io.sphere.sdk.models.Resource;
+import io.sphere.sdk.models.TraceResource;
 import io.sphere.sdk.types.Custom;
 import io.sphere.sdk.types.CustomFields;
 import io.sphere.sdk.types.TypeDraft;
@@ -36,7 +37,7 @@ import java.util.List;
 @HasUpdateCommand
 @HasDeleteCommand(canEraseUsersData = true)
 @HasQueryModel
-public interface DiscountCode extends Resource<DiscountCode>, Custom {
+public interface DiscountCode extends Resource<DiscountCode>, TraceResource, Custom {
     /**
      * The referenced matching cart discounts can be applied to the cart once the discount code is added ({@link io.sphere.sdk.carts.commands.updateactions.AddDiscountCode}).
      * @return cart discounts

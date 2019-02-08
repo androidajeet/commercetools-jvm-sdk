@@ -10,6 +10,7 @@ import io.sphere.sdk.discountcodes.DiscountCodeInfo;
 import io.sphere.sdk.models.Address;
 import io.sphere.sdk.models.Reference;
 import io.sphere.sdk.models.Resource;
+import io.sphere.sdk.models.TraceResource;
 import io.sphere.sdk.products.PriceUtils;
 import io.sphere.sdk.types.Custom;
 import io.sphere.sdk.types.CustomFields;
@@ -30,7 +31,7 @@ import static io.sphere.sdk.products.PriceUtils.zeroAmount;
  *
  * @param <T> the type of this {@link CartLike}, order or cart
  */
-public interface CartLike<T> extends Resource<T>, Custom {
+public interface CartLike<T> extends Resource<T>, Custom, TraceResource {
 
     /**
      * The ID of the customer to which this cart/order belongs to.

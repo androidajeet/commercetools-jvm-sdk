@@ -6,10 +6,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.sphere.sdk.annotations.*;
 import io.sphere.sdk.carts.ItemState;
-import io.sphere.sdk.models.LocalizedString;
-import io.sphere.sdk.models.Resource;
-import io.sphere.sdk.models.Reference;
-import io.sphere.sdk.models.WithKey;
+import io.sphere.sdk.models.*;
 
 import javax.annotation.Nullable;
 import java.util.Set;
@@ -40,7 +37,7 @@ import java.util.Set;
 @HasUpdateCommand
 @HasDeleteCommand(javadocSummary = "Deletes a state.", includeExamples = "io.sphere.sdk.states.commands.StateDeleteCommandIntegrationTest#execution()")
 @HasQueryModel
-public interface State extends Resource<State>, WithKey {
+public interface State extends Resource<State>, TraceResource, WithKey {
 
     String getKey();
 

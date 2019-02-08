@@ -6,6 +6,7 @@ import io.sphere.sdk.annotations.*;
 import io.sphere.sdk.channels.Channel;
 import io.sphere.sdk.models.Reference;
 import io.sphere.sdk.models.Resource;
+import io.sphere.sdk.models.TraceResource;
 import io.sphere.sdk.types.Custom;
 import io.sphere.sdk.types.CustomFields;
 import io.sphere.sdk.types.TypeDraft;
@@ -33,7 +34,7 @@ import java.time.ZonedDateTime;
 @HasUpdateCommand
 @HasDeleteCommand
 @HasQueryModel
-public interface InventoryEntry extends Resource<InventoryEntry>, Custom {
+public interface InventoryEntry extends Resource<InventoryEntry>, TraceResource, Custom {
     /**
      * Available amount of stock. (available means: quantityOnStock - reserved quantity)
      * @return quantity

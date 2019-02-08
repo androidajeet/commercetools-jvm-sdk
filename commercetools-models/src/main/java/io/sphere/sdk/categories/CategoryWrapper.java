@@ -2,10 +2,7 @@ package io.sphere.sdk.categories;
 
 import java.time.ZonedDateTime;
 
-import io.sphere.sdk.models.Asset;
-import io.sphere.sdk.models.Base;
-import io.sphere.sdk.models.LocalizedString;
-import io.sphere.sdk.models.Reference;
+import io.sphere.sdk.models.*;
 import io.sphere.sdk.types.CustomFields;
 
 import javax.annotation.Nonnull;
@@ -117,5 +114,15 @@ abstract class CategoryWrapper extends Base implements Category {
     @Override
     public List<Asset> getAssets() {
         return delegate.getAssets();
+    }
+
+    @Override
+    public CreatedBy getCreatedBy() {
+        return delegate.getCreatedBy();
+    }
+
+    @Override
+    public LastModifiedBy getLastModifiedBy() {
+        return delegate.getLastModifiedBy();
     }
 }

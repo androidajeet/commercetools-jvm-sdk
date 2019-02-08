@@ -7,6 +7,7 @@ import io.sphere.sdk.annotations.HasUpdateAction;
 import io.sphere.sdk.annotations.PropertySpec;
 import io.sphere.sdk.annotations.ResourceValue;
 import io.sphere.sdk.models.CreationTimestamped;
+import io.sphere.sdk.models.TraceResource;
 import io.sphere.sdk.models.WithKey;
 
 import javax.annotation.Nullable;
@@ -21,7 +22,7 @@ import static java.util.stream.Collectors.toList;
 
 @ResourceValue(abstractResourceClass = true)
 @JsonDeserialize(as = ProjectImpl.class)
-public interface Project extends CreationTimestamped, WithKey {
+public interface Project extends CreationTimestamped, WithKey, TraceResource {
     /**
      * The unique key of the project.
      *

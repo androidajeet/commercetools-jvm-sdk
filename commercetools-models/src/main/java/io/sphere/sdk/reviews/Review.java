@@ -7,6 +7,7 @@ import io.sphere.sdk.annotations.*;
 import io.sphere.sdk.customers.Customer;
 import io.sphere.sdk.models.Reference;
 import io.sphere.sdk.models.Resource;
+import io.sphere.sdk.models.TraceResource;
 import io.sphere.sdk.models.WithKey;
 import io.sphere.sdk.states.State;
 import io.sphere.sdk.types.Custom;
@@ -79,7 +80,7 @@ import java.util.Locale;
 @HasUpdateCommand(javadocSummary = "Updates a review.", updateWith = "key")
 @HasDeleteCommand(deleteWith = {"key","id"}, canEraseUsersData = true)
 @HasQueryModel()
-public interface Review extends Resource<Review>, Custom, WithKey {
+public interface Review extends Resource<Review>, TraceResource, Custom, WithKey {
     /**
      * The name of the author which created this review or null.
      *

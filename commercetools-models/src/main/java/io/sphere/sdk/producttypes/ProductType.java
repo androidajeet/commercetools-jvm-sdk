@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.sphere.sdk.annotations.*;
 import io.sphere.sdk.models.Reference;
 import io.sphere.sdk.models.Resource;
+import io.sphere.sdk.models.TraceResource;
 import io.sphere.sdk.models.WithKey;
 import io.sphere.sdk.products.Product;
 import io.sphere.sdk.products.attributes.AttributeConstraint;
@@ -57,7 +58,7 @@ import java.util.Optional;
         " <p>Delete by key:</p>\n" +
         " {@include.example io.sphere.sdk.producttypes.commands.ProductTypeDeleteCommandIntegrationTest#executionByKey()}", deleteWith = "key")
 @HasQueryModel
-public interface ProductType extends Resource<ProductType>, AttributeDefinitionContainer, WithKey {
+public interface ProductType extends Resource<ProductType>, TraceResource, AttributeDefinitionContainer, WithKey {
 
     String getName();
 

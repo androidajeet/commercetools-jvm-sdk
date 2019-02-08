@@ -9,6 +9,7 @@ import io.sphere.sdk.customergroups.CustomerGroup;
 import io.sphere.sdk.discountcodes.DiscountCodeInfo;
 import io.sphere.sdk.models.Address;
 import io.sphere.sdk.models.Reference;
+import io.sphere.sdk.models.TraceResource;
 import io.sphere.sdk.orders.Order;
 import io.sphere.sdk.types.CustomFields;
 import io.sphere.sdk.types.TypeDraft;
