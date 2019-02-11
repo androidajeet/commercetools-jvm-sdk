@@ -18,7 +18,11 @@ public class ProjectCartValueIntegrationTest extends ProjectIntegrationTest {
         final Project updatedProjectCartValue = client().executeBlocking(ProjectUpdateCommand.of(project, SetShippingRateInputType.of(CartValueDraftBuilder.of().build())));
         assertThat(updatedProjectCartValue.getShippingRateInputType()).isNotNull();
         assertThat(updatedProjectCartValue.getShippingRateInputType().getType()).isEqualTo("CartValue");
-        if(updatedProjectCartValue.getCreatedAt().isAfter(DateTime.parse("2019-02-01").toGregorianCalendar().toZonedDateTime())){
+
+        //TODO remove the logging test
+        logger.error("the project was created at {} ", updatedProjectCartValue.getCreatedAt());
+
+        if (updatedProjectCartValue.getCreatedAt().isAfter(DateTime.parse("2019-02-01").toGregorianCalendar().toZonedDateTime())) {
             assertThat(updatedProjectCartValue.getLastModifiedBy()).isNotNull();
             assertThat(updatedProjectCartValue.getCreatedBy()).isNotNull();
         }
