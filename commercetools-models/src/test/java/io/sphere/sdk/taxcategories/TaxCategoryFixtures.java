@@ -17,6 +17,7 @@ import static io.sphere.sdk.test.SphereTestUtils.*;
 import static java.util.Arrays.asList;
 import static java.util.Collections.singletonList;
 import static java.util.Objects.requireNonNull;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public final class TaxCategoryFixtures {
 
@@ -58,6 +59,8 @@ public final class TaxCategoryFixtures {
         final PagedQueryResult<TaxCategory> results = client.executeBlocking(TaxCategoryQuery.of().byName(draft.getName()));
         results.getResults().forEach(tc -> client.executeBlocking(TaxCategoryDeleteCommand.of(tc)));
         final TaxCategory taxCategory = client.executeBlocking(TaxCategoryCreateCommand.of(draft));
+        assertThat(taxCategory.getLastModifiedBy()).isNotNull();
+        assertThat(taxCategory.getCreatedBy()).isNotNull();
         user.accept(taxCategory);
         client.executeBlocking(TaxCategoryDeleteCommand.of(taxCategory));
     }

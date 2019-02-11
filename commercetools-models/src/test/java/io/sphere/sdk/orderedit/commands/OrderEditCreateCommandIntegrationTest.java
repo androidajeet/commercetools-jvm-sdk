@@ -29,6 +29,8 @@ public class OrderEditCreateCommandIntegrationTest extends IntegrationTest {
             final OrderEdit orderEdit = createOrderEdit(order);
             assertThat(orderEdit).isNotNull();
             assertThat(orderEdit.getResult()).isNotNull();
+            assertThat(orderEdit.getLastModifiedBy()).isNotNull();
+            assertThat(orderEdit.getCreatedBy()).isNotNull();
 
             final OrderEditDeleteCommand orderEditDeleteCommand = OrderEditDeleteCommand.of(orderEdit);
             client().executeBlocking(orderEditDeleteCommand);
@@ -46,6 +48,8 @@ public class OrderEditCreateCommandIntegrationTest extends IntegrationTest {
         withOrder(client(), order -> {
             final OrderEdit orderEdit = createOrderEdit(order);
             assertThat(orderEdit).isNotNull();
+            assertThat(orderEdit.getLastModifiedBy()).isNotNull();
+            assertThat(orderEdit.getCreatedBy()).isNotNull();
             final OrderEditDeleteCommand orderEditDeleteByKeyCommand = OrderEditDeleteCommand.ofKey(orderEdit.getKey(), orderEdit.getVersion());
             client().executeBlocking(orderEditDeleteByKeyCommand);
 

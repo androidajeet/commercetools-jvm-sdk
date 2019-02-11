@@ -36,6 +36,8 @@ public class TypeCreateCommandIntegrationTest extends IntegrationTest {
         assertThat(type.getResourceTypeIds()).containsExactly(Category.referenceTypeId());
         assertThat(type.getDescription()).isEqualTo(en("description"));
         assertThat(type.getFieldDefinitions()).containsExactly(stringFieldDefinition);
+        assertThat(type.getLastModifiedBy()).isNotNull();
+        assertThat(type.getCreatedBy()).isNotNull();
     }
 
     @Before

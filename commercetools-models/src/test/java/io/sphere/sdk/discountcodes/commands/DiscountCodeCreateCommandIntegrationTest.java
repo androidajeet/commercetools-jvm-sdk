@@ -65,6 +65,8 @@ public class DiscountCodeCreateCommandIntegrationTest extends IntegrationTest {
             assertThat(discountCode.getMaxApplications()).isEqualTo(5L);
             assertThat(discountCode.getMaxApplicationsPerCustomer()).isEqualTo(1L);
             assertThat(discountCode.getGroups()).containsExactly("DiscountGroup1");
+            assertThat(discountCode.getLastModifiedBy()).isNotNull();
+            assertThat(discountCode.getCreatedBy()).isNotNull();
             //clean up
             client().executeBlocking(DiscountCodeDeleteCommand.of(discountCode));
         });

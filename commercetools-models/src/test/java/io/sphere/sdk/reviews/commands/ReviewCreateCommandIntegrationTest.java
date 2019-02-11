@@ -89,6 +89,8 @@ public class ReviewCreateCommandIntegrationTest extends IntegrationTest {
                         assertThat(review.getRating()).isEqualTo(100);
                         assertThat(review.getState()).isEqualTo(state.toReference());
                         assertThat(review.getCustomer()).isEqualTo(customer.toReference());
+                        assertThat(review.getLastModifiedBy()).isNotNull();
+                        assertThat(review.getCreatedBy()).isNotNull();
 
                         final ProductProjection productProjection = client().executeBlocking(ProductProjectionByIdGet.ofStaged(product));
                         assertThat(productProjection.getReviewRatingStatistics()).
@@ -137,6 +139,8 @@ public class ReviewCreateCommandIntegrationTest extends IntegrationTest {
                     assertThat(review.getRating()).isEqualTo(100);
                     assertThat(review.getCustomer()).isEqualTo(customer.toReference());
                     assertThat(review.getState()).isEqualTo(state.toReference());
+                    assertThat(review.getLastModifiedBy()).isNotNull();
+                    assertThat(review.getCreatedBy()).isNotNull();
 
                     assertEventually(() -> {
                         final ProductProjection productProjection = client().executeBlocking(ProductProjectionByIdGet.ofStaged(product));

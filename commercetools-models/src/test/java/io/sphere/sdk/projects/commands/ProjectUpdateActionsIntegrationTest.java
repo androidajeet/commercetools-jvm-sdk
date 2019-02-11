@@ -52,7 +52,8 @@ public class ProjectUpdateActionsIntegrationTest extends ProjectIntegrationTest{
             soft.assertThat(updatedProject.getMessages().isEnabled()).isEqualTo(new_project_messages_enabled);
             soft.assertThat(updatedProject.getMessages().getDeleteDaysAfterCreation()).isEqualTo(delete_days_after_activation);
             soft.assertThat(updatedProject.getShippingRateInputType()).isNull();
-
+//            soft.assertThat(updatedProject.getLastModifiedBy()).isNotNull();
+//            soft.assertThat(updatedProject.getCreatedBy()).isNotNull();
         });
     }
 

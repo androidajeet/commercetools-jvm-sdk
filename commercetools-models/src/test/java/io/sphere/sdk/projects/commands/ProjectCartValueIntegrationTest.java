@@ -4,6 +4,7 @@ import io.sphere.sdk.projects.CartValueDraftBuilder;
 import io.sphere.sdk.projects.Project;
 import io.sphere.sdk.projects.commands.updateactions.SetShippingRateInputType;
 import io.sphere.sdk.projects.queries.ProjectGet;
+import org.joda.time.DateTime;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,7 +18,9 @@ public class ProjectCartValueIntegrationTest extends ProjectIntegrationTest {
         final Project updatedProjectCartValue = client().executeBlocking(ProjectUpdateCommand.of(project, SetShippingRateInputType.of(CartValueDraftBuilder.of().build())));
         assertThat(updatedProjectCartValue.getShippingRateInputType()).isNotNull();
         assertThat(updatedProjectCartValue.getShippingRateInputType().getType()).isEqualTo("CartValue");
-
+        if(updatedProjectCartValue.getCreatedAt().isAfter(DateTime.parse("2019-02-01").toGregorianCalendar().toZonedDateTime())){
+            assertThat(updatedProjectCartValue.getLastModifiedBy()).isNotNull();
+            assertThat(updatedProjectCartValue.getCreatedBy()).isNotNull();
+        }
     }
-
 }

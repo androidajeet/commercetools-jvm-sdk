@@ -42,6 +42,8 @@ public class StateCreateCommandIntegrationTest extends IntegrationTest {
         assertThat(state.getType()).isEqualTo(StateType.LINE_ITEM_STATE);
         assertThat(state.getDescription()).isEqualTo(description);
         assertThat(state.getName()).isEqualTo(name);
+        assertThat(state.getLastModifiedBy()).isNotNull();
+        assertThat(state.getCreatedBy()).isNotNull();
     }
 
     @Test

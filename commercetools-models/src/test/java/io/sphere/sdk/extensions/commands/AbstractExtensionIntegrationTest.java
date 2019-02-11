@@ -123,6 +123,8 @@ public abstract class AbstractExtensionIntegrationTest extends IntegrationTest {
     public void withExtensionDraft(final BlockingSphereClient client, final ExtensionDraft extensionDraft, final UnaryOperator<Extension> mapper) {
 
         Extension extension = client.executeBlocking(ExtensionCreateCommand.of(extensionDraft));
+        assertThat(extension.getLastModifiedBy()).isNotNull();
+        assertThat(extension.getCreatedBy()).isNotNull();
         Extension result = mapper.apply(extension);
         client.executeBlocking(ExtensionDeleteCommand.of(result));
     }

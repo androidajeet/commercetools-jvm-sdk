@@ -52,6 +52,8 @@ public class ChannelCreateCommandIntegrationTest extends IntegrationTest {
         assertThat(channel.getRoles()).isEqualTo(asSet(ChannelRole.INVENTORY_SUPPLY));
         assertThat(channel.getAddress()).isEqualTo(address);
         assertThat(channel.getGeoLocation()).isEqualTo(geoLocation);
+        assertThat(channel.getLastModifiedBy()).isNotNull();
+        assertThat(channel.getCreatedBy()).isNotNull();
     }
 
     @Test

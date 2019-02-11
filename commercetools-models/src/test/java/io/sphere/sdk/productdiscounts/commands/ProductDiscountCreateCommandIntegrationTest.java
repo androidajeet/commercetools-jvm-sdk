@@ -65,6 +65,8 @@ public class ProductDiscountCreateCommandIntegrationTest extends IntegrationTest
         assertThat(productDiscount.isActive()).isEqualTo(active);
         assertThat(productDiscount.getValidFrom()).isEqualTo(start);
         assertThat(productDiscount.getValidUntil()).isEqualTo(end);
+        assertThat(productDiscount.getLastModifiedBy()).isNotNull();
+        assertThat(productDiscount.getCreatedBy()).isNotNull();
         final ProductByIdGet sphereRequest =
                 ProductByIdGet.of(product)
                         .plusExpansionPaths(m -> m.masterData().staged().masterVariant().prices().discounted().discount());

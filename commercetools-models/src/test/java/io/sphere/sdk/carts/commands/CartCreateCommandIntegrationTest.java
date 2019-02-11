@@ -49,6 +49,8 @@ public class CartCreateCommandIntegrationTest extends IntegrationTest {
         assertThat(cart.getTotalPrice().getCurrency().getCurrencyCode()).isEqualTo(EUR.getCurrencyCode());
         assertThat(cart.getCountry()).isEqualTo(DE);
         assertThat(cart.getTotalPrice().isZero()).isTrue();
+        assertThat(cart.getLastModifiedBy()).isNotNull();
+        assertThat(cart.getCreatedBy()).isNotNull();
     }
 
     @Test

@@ -38,6 +38,8 @@ public class InventoryEntryCreateCommandIntegrationTest extends IntegrationTest 
             assertThat(inventoryEntry.getExpectedDelivery()).isEqualTo(expectedDelivery);
             assertThat(inventoryEntry.getRestockableInDays()).isEqualTo(restockableInDays);
             assertThat(inventoryEntry.getSupplyChannel()).isEqualTo(channel.toReference());
+            assertThat(inventoryEntry.getLastModifiedBy()).isNotNull();
+            assertThat(inventoryEntry.getCreatedBy()).isNotNull();
 
             //delete
             final DeleteCommand<InventoryEntry> deleteCommand = InventoryEntryDeleteCommand.of(inventoryEntry);

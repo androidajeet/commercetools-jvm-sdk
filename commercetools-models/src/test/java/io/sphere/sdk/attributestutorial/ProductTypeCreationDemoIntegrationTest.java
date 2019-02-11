@@ -1,3 +1,4 @@
+
 package io.sphere.sdk.attributestutorial;
 
 import com.fasterxml.jackson.databind.JsonNode;

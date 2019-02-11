@@ -55,6 +55,8 @@ public class ProductTypeCreateCommandIntegrationTest extends IntegrationTest {
         assertThat(productType.getAttributes()).hasSize(1);
         assertThat(productType.getAttributes().get(0).getInputTip())
                 .isEqualTo(LocalizedString.ofEnglish("size as enum"));
+        assertThat(productType.getLastModifiedBy()).isNotNull();
+        assertThat(productType.getCreatedBy()).isNotNull();
     }
 
     @Test

@@ -32,6 +32,8 @@ public class CustomerGroupCreateCommandIntegrationTest extends IntegrationTest {
         final CustomerGroup customerGroup = client().executeBlocking(CustomerGroupCreateCommand.of(name));
 
         assertThat(customerGroup.getName()).isEqualTo(name);
+        assertThat(customerGroup.getLastModifiedBy()).isNotNull();
+        assertThat(customerGroup.getCreatedBy()).isNotNull();
     }
 
     @Test

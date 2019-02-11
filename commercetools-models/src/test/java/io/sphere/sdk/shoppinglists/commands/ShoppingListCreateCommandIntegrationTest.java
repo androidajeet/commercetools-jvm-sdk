@@ -46,6 +46,8 @@ public class ShoppingListCreateCommandIntegrationTest extends IntegrationTest {
         assertThat(shoppingList.getId()).isNotNull();
         assertThat(shoppingList.getKey()).isEqualTo(DEMO_SHOPPING_LIST_KEY);
         assertThat(shoppingList.getDeleteDaysAfterLastModification()).isEqualTo(deleteDaysAfterLastModification);
+        assertThat(shoppingList.getLastModifiedBy()).isNotNull();
+        assertThat(shoppingList.getCreatedBy()).isNotNull();
     }
 
     @Test

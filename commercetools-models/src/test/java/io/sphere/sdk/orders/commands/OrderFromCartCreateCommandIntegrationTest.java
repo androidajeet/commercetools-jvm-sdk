@@ -31,6 +31,8 @@ public class OrderFromCartCreateCommandIntegrationTest extends IntegrationTest {
         withStateByBuilder(client(), builder -> builder.type(StateType.ORDER_STATE), state -> {
             withFilledCart(client(), cart -> {
                 final Order order = client().executeBlocking(OrderFromCartCreateCommand.of(cart));
+                assertThat(order.getLastModifiedBy()).isNotNull();
+                assertThat(order.getCreatedBy()).isNotNull();
                 final Order updatedOrder = client().executeBlocking(OrderUpdateCommand.of(order, TransitionState.of(state))
                         .plusExpansionPaths(OrderExpansionModel::state)
                         .plusExpansionPaths(OrderExpansionModel::cart)

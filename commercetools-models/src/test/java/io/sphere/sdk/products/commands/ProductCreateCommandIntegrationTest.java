@@ -67,6 +67,8 @@ public class ProductCreateCommandIntegrationTest extends IntegrationTest {
             assertThat(product.getTaxCategory()).isEqualTo(taxCategory.toReference());
             assertThat(product.getMasterData().getStaged().getSearchKeywords()).isEqualTo(searchKeywords);
             assertThat(product.getState()).isEqualTo(initialProductState.toReference());
+            assertThat(product.getLastModifiedBy()).isNotNull();
+            assertThat(product.getCreatedBy()).isNotNull();
 
             //clean up test
             client().executeBlocking(ProductDeleteCommand.of(product));

@@ -96,6 +96,8 @@ public class CustomerCreateCommandIntegrationTest extends CustomerIntegrationTes
         String addressId = loadedAddresses.get(0).getId();
         final Address addressById = customer.findAddressById(addressId).get();
         assertThat(addressById.equals(loadedAddresses.get(0)));
+        assertThat(customer.getLastModifiedBy()).isNotNull();
+        assertThat(customer.getCreatedBy()).isNotNull();
     }
 
     @Test

@@ -69,6 +69,8 @@ public class CartDiscountCreateCommandIntegrationTest extends IntegrationTest {
         assertThat(cartDiscount.getDescription()).isEqualTo(description);
         assertThat(cartDiscount.getReferences()).isEqualTo(Collections.emptyList());
         assertThat(cartDiscount.getStackingMode()).isEqualTo(StackingMode.STOP_AFTER_THIS_DISCOUNT);
+        assertThat(cartDiscount.getLastModifiedBy()).isNotNull();
+        assertThat(cartDiscount.getCreatedBy()).isNotNull();
     }
 
     @After

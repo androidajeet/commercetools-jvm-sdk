@@ -42,6 +42,8 @@ public class CategoryCreateCommandIntegrationTest extends IntegrationTest {
         assertThat(category.getMetaDescription()).isEqualTo(metaDescription);
         assertThat(category.getMetaKeywords()).isEqualTo(metaKeywords);
         assertThat(category.getExternalId()).contains(externalId);
+        assertThat(category.getLastModifiedBy()).isNotNull();
+        assertThat(category.getCreatedBy()).isNotNull();
     }
 
     @Test

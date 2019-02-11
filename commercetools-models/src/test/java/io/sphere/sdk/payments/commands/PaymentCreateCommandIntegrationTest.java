@@ -44,6 +44,8 @@ public class PaymentCreateCommandIntegrationTest extends IntegrationTest {
             assertThat(payment.getAnonymousId()).isEqualTo(anonymousId);
             assertThat(payment.getPaymentMethodInfo()).isEqualTo(paymentMethodInfo);
             assertThat(payment.getAmountPlanned()).isEqualTo(totalAmount);
+            assertThat(payment.getLastModifiedBy()).isNotNull();
+            assertThat(payment.getCreatedBy()).isNotNull();
 
             client().executeBlocking(PaymentDeleteCommand.of(payment));
         }));
