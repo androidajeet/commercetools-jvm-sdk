@@ -75,6 +75,7 @@ public class JvmSdkConfigurationFactory implements ConfigurationFactory {
                 "org.mockito.mockito-core",
                 "org.ops4j.pax.logging.pax-logging-api",
                 "org.ops4j.pax.logging.pax-logging-service",
+                "joda-time",
                 //dependencies for tests
                 "ch.qos.logback.classic",
                 "ch.qos.logback.core"
