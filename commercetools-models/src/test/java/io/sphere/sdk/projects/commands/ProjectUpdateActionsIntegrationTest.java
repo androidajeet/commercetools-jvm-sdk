@@ -8,6 +8,7 @@ import io.sphere.sdk.projects.commands.updateactions.*;
 import io.sphere.sdk.projects.queries.ProjectGet;
 import org.assertj.core.api.Assertions;
 import org.junit.After;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.net.URL;
@@ -28,6 +29,7 @@ public class ProjectUpdateActionsIntegrationTest extends ProjectIntegrationTest{
         Assertions.assertThat(updatedProject.getExternalOAuth()).isNull();
     }
 
+    @Ignore
     @Test
     public void execution() throws Exception{
 
