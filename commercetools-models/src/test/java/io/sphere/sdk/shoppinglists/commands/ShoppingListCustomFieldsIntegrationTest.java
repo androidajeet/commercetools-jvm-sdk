@@ -5,6 +5,7 @@ import io.sphere.sdk.shoppinglists.ShoppingList;
 import io.sphere.sdk.shoppinglists.ShoppingListDraftDsl;
 import io.sphere.sdk.shoppinglists.commands.updateactions.SetCustomField;
 import io.sphere.sdk.shoppinglists.commands.updateactions.SetCustomType;
+import io.sphere.sdk.shoppinglists.queries.ShoppingListByIdGet;
 import io.sphere.sdk.test.IntegrationTest;
 import io.sphere.sdk.types.CustomFieldsDraft;
 import io.sphere.sdk.types.CustomFieldsDraftBuilder;
@@ -37,7 +38,9 @@ public class ShoppingListCustomFieldsIntegrationTest extends IntegrationTest {
             final CustomFieldsDraft customFieldsDraft = CustomFieldsDraftBuilder.ofType(type).addObject(STRING_FIELD_NAME, "a value").build();
             final ShoppingListDraftDsl shoppingListDraft = newShoppingListDraftBuilder().custom(customFieldsDraft).build();
             withShoppingList(client(), shoppingListDraft, shoppingList -> {
-                final ShoppingListUpdateCommand shoppingListUpdateCommand = ShoppingListUpdateCommand.of(shoppingList,
+                safeSleep(1000);
+                ShoppingList newShoppingList = client().executeBlocking(ShoppingListByIdGet.of(shoppingList));
+                final ShoppingListUpdateCommand shoppingListUpdateCommand = ShoppingListUpdateCommand.of(newShoppingList,
                         SetCustomType.ofTypeIdAndObjects(type.getId(), STRING_FIELD_NAME, "a value"));
                 final ShoppingList updatedShoppingList = client().executeBlocking(shoppingListUpdateCommand);
 
@@ -73,5 +76,13 @@ public class ShoppingListCustomFieldsIntegrationTest extends IntegrationTest {
             });
             return type;
         });
+    }
+
+
+    public void safeSleep(Integer millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (Exception e) {
+        }
     }
 }
