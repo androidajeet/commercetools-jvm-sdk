@@ -219,10 +219,21 @@ abstract class BaseAbstractGenerator {
                 .addParameters(parameters)
                 .addAnnotation(JsonCreator.class);
         final List<String> parameterNames = properties.stream()
+                .filter(propertyGenModel -> !propertyGenModel.hasSameType(List.class) && !propertyGenModel.hasSameType(Set.class) )
                 .map(PropertyGenModel::getJavaIdentifier)
                 .collect(Collectors.toList());
         parameterNames.forEach(n -> builder.addCode("this.$L = $L;\n", n, n));
+        final List<String> arrayNames = properties.stream()
+                .filter(propertyGenModel -> propertyGenModel.hasSameType(List.class) )
+                .map(PropertyGenModel::getJavaIdentifier)
+                .collect(Collectors.toList());
+        arrayNames.forEach(n -> builder.addCode("this.$L = $L != null ? $L : com.google.common.collect.Lists.newArrayList();\n", n, n, n));
 
+        final List<String> setNames = properties.stream()
+                .filter(propertyGenModel -> propertyGenModel.hasSameType(Set.class) )
+                .map(PropertyGenModel::getJavaIdentifier)
+                .collect(Collectors.toList());
+        setNames.forEach(n -> builder.addCode("this.$L = $L != null ? $L : com.google.common.collect.Sets.newHashSet();\n", n, n, n));
         return builder.build();
     }
 
