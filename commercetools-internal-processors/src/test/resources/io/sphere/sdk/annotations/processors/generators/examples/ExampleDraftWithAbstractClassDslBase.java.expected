@@ -36,9 +36,9 @@ abstract class ExampleDraftWithAbstractClassDslBase<T extends ExampleDraftWithAb
       final String sku) {
     this._default = _default;
     this.active = active;
-    this.names = names;
     this.optional = optional;
     this.sku = sku;
+    this.names = names != null ? names : com.google.common.collect.Lists.newArrayList();
   }
 
   @JsonProperty("isDefault")
