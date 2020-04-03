@@ -48,10 +48,10 @@ public final class ExampleDraftBuilder extends Base implements Builder<ExampleDr
     this._default = _default;
     this.active = active;
     this.deprecatedField = deprecatedField;
+    this.names = names;
     this.optional = optional;
     this.sku = sku;
-    this.names = names != null ? names : com.google.common.collect.Lists.newArrayList();
-    this.values = values != null ? values : com.google.common.collect.Sets.newHashSet();
+    this.values = values;
   }
 
   /**
